@@ -1,78 +1,79 @@
 #include "vec4.h"
 #include <iostream>
 
+
+namespace lalgebra {
+
 // Regular constructor
-lalgebra::vec4::vec4(int x, int y, int z, int w){
-    this -> x = x;
-    this -> y = y;
-    this -> z = z;
-    this -> w = w;
+vec4::vec4(int x_, int y_, int z_, int w_) : x(x_), y(y_), z(z_), w(w_) {}
+
+// Empty constructor for 0-vector
+vec4::vec4() : x(0), y(0), z(0), w(0) {}
+
+// Implement a dot-like multiplication of vectors method
+vec4& vec4::mult(const vec4& b) {
+    x *= b.x;
+    y *= b.y;
+    w *= b.z;
+    z *= b.w;
+    return *this;  
 }
 
-// Empty constructor for basis vector
-lalgebra::vec4::vec4(){
-    this -> x = 1;
-    this -> y = 1;
-    this -> z = 1;
-    this -> w = 1;
+// Implement a dot-like multiplication of 2 vectors
+vec4 vec4::mult(const vec4& a, const vec4& b) {
+    return vec4(a.x * b.x, a.y * b.y, a.z * b.z, a.w * b.w);  
+}
+
+// Implement a dot product method
+int vec4::dot(const vec4& b) const {
+    return x * b.x + y * b.y + z * b.z + w * b.w;
+}
+
+// Implement a dot product method
+int vec4::dot(const vec4& a, const vec4& b) {
+    return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 }
 
 // Overload + operator for perform vector addition
-lalgebra::vec4 lalgebra::vec4::operator+(const lalgebra::vec4& b){
-    lalgebra::vec4 result;
-    result.x = this -> x + b.x;
-    result.y = this -> y + b.y;
-    result.z = this -> z + b.z;
-    result.w = this -> w + b.w;
-    return result;
+vec4 vec4::operator+(const vec4& b) const {
+    return vec4(x + b.x, y + b.y, z + b.z, w + b.w);
 }
 
 // Overload += operator for perform vector addition
-lalgebra::vec4& lalgebra::vec4::operator+=(const lalgebra::vec4& b){
-    this -> x += b.x;
-    this -> y += b.y;
-    this -> z += b.z;
-    this -> w += b.w;
+vec4& vec4::operator+=(const vec4& b) {
+    x += b.x;
+    y += b.y;
+    z += b.z;
+    w += b.w;
     return *this;
 }
 
-// Overload - operator for perform vector substraction
-lalgebra::vec4 lalgebra::vec4::operator-(const lalgebra::vec4& b){
-    lalgebra::vec4 result;
-    result.x = this -> x - b.x;
-    result.y = this -> y - b.y;
-    result.z = this -> z - b.z;
-    result.w = this -> w - b.w;
-    return result;
+// Overload - operator for perform vector subtraction
+vec4 vec4::operator-(const vec4& b) const {
+    return vec4(x - b.x, y - b.y, z - b.z, w - b.w);
 }
 
-// Overload -= operator for perform vector substraction
-lalgebra::vec4& lalgebra::vec4::operator-=(const lalgebra::vec4& b){
-    this -> x -= b.x;
-    this -> y -= b.y;
-    this -> z -= b.z;
-    this -> w -= b.w;
+// Overload -= operator for perform vector subtraction
+vec4& vec4::operator-=(const vec4& b) {
+    x -= b.x;
+    y -= b.y;
+    z -= b.z;
+    w -= b.w;
     return *this;
 }
 
-// Define a dot-like miltiplication of vectors method
-lalgebra::vec4 lalgebra::vec4::mult(const lalgebra::vec4& b){
-    lalgebra::vec4 result;
-    result.x = this -> x * b.x;
-    result.y = this -> y * b.y;
-    result.z = this -> z * b.z;
-    result.w = this -> w * b.w;
-    return result;
+bool vec4::operator==(const vec4& rhs) const {
+    return (x == rhs.x) && (y == rhs.y) && (z == rhs.z) && (w == rhs.w);
 }
 
-// Define a dot product method
-int lalgebra::vec4::dot(const lalgebra::vec4& b){
-    int result;
-    result = this -> x * b.x + this -> y * b.y + this -> z * b.z + this -> w * b.w;
-    return result;
+bool vec4::operator!=(const vec4& rhs) const {
+    return !(*this == rhs);
 }
 
-std::ostream& operator<<(std::ostream& stream, const lalgebra::vec4& a){
+
+std::ostream& operator<<(std::ostream& stream, const vec4& a){
     stream << "(" << a.x << ", " << a.y << ", " << a.z << ", " << a.w << ")";
     return stream;
+}
+
 }

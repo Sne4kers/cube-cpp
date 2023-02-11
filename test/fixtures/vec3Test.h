@@ -3,18 +3,17 @@ using namespace lalgebra;
 
 class vec3Test : public ::testing::Test {
     protected:
-        vec3 v0_;
-        vec3 v1_;
-        vec3 v2_;
-        vec3 v3_;
-        vec3 v4_;
+        vec3 v0_0_0;
+        vec3 v0_0_0_1;
+        vec3 v2_3_4;
+        vec3 v3_5_1;
+        vec3 v4_0_1;
 
         void SetUp() override {
-            v2_.x = 2;
-            v3_.x = 2;
-            v3_.y = 3;
-            v4_.x = 2;
-            v4_.y = 4;
-            v4_.z = 4;
+            v0_0_0 = vec3();
+            v0_0_0_1 = vec3(0, 0, 0);
+            v2_3_4 = vec3(2, 3, 4);
+            v3_5_1 = vec3(3, 5, 1);
+            v4_0_1 = vec3(4, 0, 1);
         }
 };
