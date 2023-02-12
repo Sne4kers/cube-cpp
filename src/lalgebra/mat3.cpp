@@ -5,26 +5,23 @@
 namespace lalgebra {
 
 mat3::mat3() {
-	matrix = new vec3[3];
+	matrix = std::array<vec3, 3>({vec3(1, 0, 0), vec3(0, 1, 0), vec3(0, 0, 1)});
 }
 
 mat3::mat3(const vec3& a, const vec3& b, const vec3& c) {
-	matrix = new vec3[3];
-	matrix[0] = a;
-	matrix[1] = b;
-	matrix[2] = c;
+	matrix = std::array<vec3, 3>({a, b, c});
 }
 
 mat3 mat3::identity() {
 	return mat3(vec3(1, 0, 0), vec3(0, 1, 0), vec3(0, 0, 1));
 }
 
-vec3& mat3::operator[](int index) const {
+vec3& mat3::operator[](int index) {
 	return matrix[index];
 }
 
-mat3::~mat3() {
-	delete matrix;
+vec3 mat3::operator[](int index) const{
+	return matrix[index];
 }
 
 std::ostream& operator<<(std::ostream& stream, const mat3& a) {
