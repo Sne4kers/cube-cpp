@@ -2,7 +2,7 @@
 #include <iostream>
 #include <cmath>
 
-namespace lalgebra{
+namespace lalgebra {
 
 // Regular constructor
 vec3::vec3(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}

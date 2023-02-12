@@ -16,6 +16,10 @@ int main(int, char**) {
     b += vec3(3, 7, 2);
     a = a.mult(b);
     cout << a << endl;
-
+    auto mat = mat3();
+    cout << "Zero matrix:" << endl;
+    cout << mat;
+    cout << "Identity matrix:" << endl;
+    cout << mat3::identity();
     return 0;
 }
