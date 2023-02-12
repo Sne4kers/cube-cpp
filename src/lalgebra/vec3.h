@@ -16,12 +16,16 @@ public:
 
     float dot(const vec3& b) const;
     static float dot(const vec3& a, const vec3& b);
-    
+
     vec3 operator+(const vec3& b) const;
     vec3& operator+=(const vec3& b);
     vec3 operator-(const vec3& b) const;
     vec3& operator-=(const vec3& b);
+
+    vec3 operator*(int b) const;
 };
+
+vec3 operator*(int lhs, const vec3& rhs);
 
 std::ostream& operator<<(std::ostream& stream, const vec3& a);
 

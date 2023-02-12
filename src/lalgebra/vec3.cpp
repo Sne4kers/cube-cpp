@@ -59,6 +59,14 @@ vec3& vec3::operator-=(const vec3& b) {
     return *this;
 }
 
+vec3 vec3::operator*(int b) const {
+    return vec3(x * b, y * b, z * b);
+}
+
+vec3 operator*(int lhs, const vec3& rhs) {
+    return vec3(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs);
+}
+
 std::ostream& operator<<(std::ostream& stream, const vec3& a){
     stream << "(" << a.x << ", " << a.y << ", " << a.z << ")";
     return stream;

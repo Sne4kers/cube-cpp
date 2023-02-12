@@ -8,6 +8,8 @@ int main(int, char**) {
     auto b = vec3(1, 1, 1);
     a += b;
     cout << a << endl;
+    cout << a * 3 << endl;
+    cout << 3 * a << endl;
 
     a -= b;
     cout << a << endl;
