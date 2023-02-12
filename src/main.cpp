@@ -17,7 +17,8 @@ int main(int, char**) {
     a = a.mult(b);
     cout << a << endl;
     auto mat = mat3();
-    cout << "Zero matrix:" << endl;
+    mat[0].x = -1;
+    cout << "Zero matrix with changed (0, 0):" << endl;
     cout << mat;
     cout << "Identity matrix:" << endl;
     cout << mat3::identity();

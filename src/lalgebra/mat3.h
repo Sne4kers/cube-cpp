@@ -6,7 +6,7 @@
 namespace lalgebra {
 class mat3 {
 public:
-	vec3 matrix[3];
+	vec3* matrix;
 
 public:
 	mat3();
@@ -14,7 +14,9 @@ public:
 
 	static mat3 identity();
 
-	vec3 operator[](int index) const;
+	vec3& operator[](int index) const;
+
+	~mat3();
 };
 
 std::ostream& operator<<(std::ostream& stream, const mat3& a);
