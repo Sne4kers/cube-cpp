@@ -17,6 +17,17 @@ public:
 
     vec3& operator[](int index);
     vec3 operator[](int index) const;
+
+    mat3 operator+(const mat3& b) const;
+    mat3& operator+=(const mat3& b);
+    mat3 operator-(const mat3& b) const;
+    mat3& operator-=(const mat3& b);
+
+    vec3 operator*(const vec3& b) const;
+
+    mat3 operator*(float b) const;
+
+    mat3 operator*(const mat3& b) const;
 };
 
 std::ostream& operator<<(std::ostream& stream, const mat3& a);

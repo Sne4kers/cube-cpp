@@ -22,10 +22,11 @@ public:
     vec3 operator-(const vec3& b) const;
     vec3& operator-=(const vec3& b);
 
-    vec3 operator*(int b) const;
+    vec3 operator*(float b) const;
+    vec3& operator*=(float b);
 };
 
-vec3 operator*(int lhs, const vec3& rhs);
+vec3 operator*(float lhs, const vec3& rhs);
 
 std::ostream& operator<<(std::ostream& stream, const vec3& a);
 

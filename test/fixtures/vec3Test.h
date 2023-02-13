@@ -9,8 +9,8 @@ protected:
     vec3 v2_3_4;
     vec3 v3_5_1;
     vec3 v4_0_1;
-    float eps = 0.0001;
-    
+    static constexpr float eps = 0.0001f;
+
 protected:
     void SetUp() override {
         v0_0_0 = vec3();
@@ -19,8 +19,8 @@ protected:
         v3_5_1 = vec3(3, 5, 1);
         v4_0_1 = vec3(4, 0, 1);
     }
-
-    void AssertEqual(const vec3& a, const vec3& b) {
+public:
+    static void AssertEqualVectors(const vec3& a, const vec3& b) {
         ASSERT_NEAR(a.x, b.x, eps);
         ASSERT_NEAR(a.y, b.y, eps);
         ASSERT_NEAR(a.z, b.z, eps);

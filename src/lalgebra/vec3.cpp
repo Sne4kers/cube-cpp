@@ -59,11 +59,18 @@ vec3& vec3::operator-=(const vec3& b) {
     return *this;
 }
 
-vec3 vec3::operator*(int b) const {
+vec3 vec3::operator*(float b) const {
     return vec3(x * b, y * b, z * b);
 }
 
-vec3 operator*(int lhs, const vec3& rhs) {
+vec3& vec3::operator*=(float b) {
+    x *= b;
+    y *= b;
+    z *= b;
+    return *this;
+}
+
+vec3 operator*(float lhs, const vec3& rhs) {
     return vec3(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs);
 }
 
