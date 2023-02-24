@@ -1,28 +1,17 @@
 #include <iostream>
+#include <unistd.h>
 #include "lalgebra.h"
+#include "screen.h"
+
 using namespace std;
 
 int main(int, char**) {
-    using namespace lalgebra;
-    auto a = vec3(1, 1, 1);
-    auto b = vec3(1, 1, 1);
-    a += b;
-    cout << a << endl;
-    cout << a * 3 << endl;
-    cout << 3 * a << endl;
-
-    a -= b;
-    cout << a << endl;
-
-    a += b;
-    b += vec3(3, 7, 2);
-    a = a.mult(b);
-    cout << a << endl;
-    auto mat = mat3();
-    mat[0].x = -1;
-    cout << "Zero matrix with changed (0, 0):" << endl;
-    cout << mat;
-    cout << "Identity matrix:" << endl;
-    cout << mat3::identity();
+    Screen s = Screen(3);
+    for(int i = 0; i < 10000; i++) {
+        system("clear");
+        s.fill(i % 10);
+        s.displayScreen();
+        usleep(1000000 / 4);
+    }
     return 0;
 }
