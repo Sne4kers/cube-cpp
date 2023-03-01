@@ -14,8 +14,8 @@ vec4::vec4() : x(0), y(0), z(0), w(0) {}
 vec4& vec4::mult(const vec4& b) {
     x *= b.x;
     y *= b.y;
-    w *= b.z;
-    z *= b.w;
+    z *= b.z;
+    w *= b.w;
     return *this;  
 }
 
@@ -60,6 +60,22 @@ vec4& vec4::operator-=(const vec4& b) {
     z -= b.z;
     w -= b.w;
     return *this;
+}
+
+vec4 vec4::operator*(float b) const {
+    return vec4(x * b, y * b, z * b, w * b);
+}
+
+vec4& vec4::operator*=(float b) {
+    x *= b;
+    y *= b;
+    z *= b;
+    w *= b;
+    return *this;
+}
+
+vec4 operator*(float lhs, const vec4& rhs) {
+    return vec4(rhs.x * lhs, rhs.y * lhs, rhs.z * lhs, rhs.w * lhs);
 }
 
 std::ostream& operator<<(std::ostream& stream, const vec4& a){

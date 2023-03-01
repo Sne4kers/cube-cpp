@@ -1,6 +1,8 @@
 #include "screen.h"
 #include <stdio.h>
 
+namespace render{
+
 Screen::Screen() {
 	screen_matrix = {0};
 }
@@ -22,4 +24,14 @@ void Screen::displayScreen() {
 		}
 		printf("\n");
 	}
+}
+
+void Screen::displayMesh(Mesh m, const lalgebra::mat4& transform) {
+
+}
+
+void Screen::displayMesh(Mesh m) {
+	displayMesh(m, lalgebra::mat4::identity());
+}
+
 }

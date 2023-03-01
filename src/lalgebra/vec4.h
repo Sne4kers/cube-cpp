@@ -21,7 +21,12 @@ public:
     vec4& operator+=(const vec4& b);
     vec4 operator-(const vec4& b) const;
     vec4& operator-=(const vec4& b);
+
+    vec4 operator*(float b) const;
+    vec4& operator*=(float b);
 };
+
+vec4 operator*(float lhs, const vec4& rhs);
 
 std::ostream& operator<<(std::ostream& stream, const vec4& a);
 
